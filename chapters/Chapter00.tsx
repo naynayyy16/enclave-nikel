@@ -16,7 +16,7 @@ export default function Chapter00() {
         <div className="max-w-3xl">
           <ChapterKicker>CHAPTER 00</ChapterKicker>
           <h1 className="reveal font-serif font-bold text-cream text-balance mt-3 mb-5 text-[2.3rem] leading-[1.08] sm:text-[2.8rem] md:text-6xl lg:text-[4rem] lg:leading-[1.05]">
-            Kabupaten Terkaya di Indonesia, Belum Tentu Paling Sejahtera
+            Ketika Satu Kabupaten Menopang Ekonomi Provinsi, Tapi Bukan Kesejahteraannya
           </h1>
           <p className="reveal max-w-xl text-cream/80 text-sm md:text-base leading-relaxed">
             Sulawesi Tengah tumbuh 8,47% pada 2025 — tertinggi ke-2 nasional.
