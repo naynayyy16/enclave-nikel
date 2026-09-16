@@ -2,6 +2,13 @@
 
 import { useActiveChapter } from "@/context/ActiveChapterContext";
 
+const CHAPTER_TITLES = [
+  "Intro", "Sejarah KIM", "Sulteng 5 Angka", "Transformasi Sektor", "PDRB Naik 68%",
+  "Pusat Ekonomi", "Konsentrasi", "Ketimpangan", "Paradoks Kemiskinan", "Siklus Boom",
+  "Deselerasi", "Nilai Tambah & Kerja", "Konsumsi RT", "Inflasi vs Kemiskinan",
+  "Kesimpulan", "Rekomendasi"
+];
+
 export default function PaginationDots() {
   const { activeIndex, totalChapters, goToChapter } = useActiveChapter();
 
@@ -14,13 +21,14 @@ export default function PaginationDots() {
             key={i}
             type="button"
             aria-label={`Ke chapter ${i}`}
+            title={`Chapter ${i}: ${CHAPTER_TITLES[i]}`}
             onClick={() => goToChapter(i)}
             className="group relative flex h-3 w-3 items-center justify-center"
           >
             <span
               className={`rounded-full transition-all duration-300 ${
                 isActive
-                  ? "h-[7px] w-[7px] bg-cyan shadow-[0_0_10px_2px_rgba(0,229,255,0.75)]"
+                  ? "pulse-dot h-[7px] w-[7px] bg-cyan shadow-[0_0_10px_2px_rgba(0,229,255,0.75)]"
                   : "h-[5px] w-[5px] bg-cream/30 group-hover:bg-cream/60"
               }`}
             />

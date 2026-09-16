@@ -24,6 +24,20 @@ export default function StoryContainer({ children, totalChapters }: StoryContain
     );
     if (!sections.length) return;
 
+    // Initial check for deep linking / refresh
+    const center = window.innerHeight / 2;
+    let bestIdx = 0, bestDist = Infinity;
+    sections.forEach((s) => {
+      const rect = s.getBoundingClientRect();
+      const dist = Math.abs(rect.top + rect.height / 2 - center);
+      if (dist < bestDist) { 
+        bestDist = dist; 
+        bestIdx = Number(s.getAttribute("data-chapter-index")); 
+      }
+    });
+    setActiveIndex(bestIdx);
+
+
     const ratios = new Map<number, number>();
 
     const observer = new IntersectionObserver(

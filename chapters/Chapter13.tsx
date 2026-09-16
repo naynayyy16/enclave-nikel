@@ -133,9 +133,15 @@ export default function Chapter13() {
                 options={options}
                 plugins={[
                   valueLabelPlugin({
-                    formatter: (v, ctx) =>
-                      ctx.datasetIndex === 0 ? `${formatIDTrim(v, 2)}%` : `${formatIDTrim(v, 2)}%`,
-                    offset: 8,
+                    formatter: (v, ctx) => `${formatIDTrim(v, 2)}%`,
+                    color: (ctx) => ctx.datasetIndex === 0 ? COLORS.cream : COLORS.cyan,
+                    offset: (ctx) => (ctx.datasetIndex === 0 && ctx.dataIndex === 2) ? 8 : 12,
+                    align: (ctx) => {
+                      if (ctx.datasetIndex === 0) {
+                        return ctx.dataIndex === 2 ? "bottom" : "top";
+                      }
+                      return "bottom";
+                    },
                   }),
                 ]}
               />

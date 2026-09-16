@@ -122,6 +122,28 @@ body {
   animation: pulseGlow 3.6s ease-in-out infinite;
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+.shimmer {
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.7); }
+  70% { transform: scale(1.1); box-shadow: 0 0 10px 4px rgba(0, 229, 255, 0); }
+  100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(0, 229, 255, 0); }
+}
+.pulse-dot {
+  animation: pulseDot 2.5s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
 @media (max-width: 900px) {
   body {
     overflow: auto;

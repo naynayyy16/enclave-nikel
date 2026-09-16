@@ -78,6 +78,11 @@ export default function Chapter11() {
                 <MetricCounter value={0.01} active={active} decimals={2} />
               </p>
               <p className="mt-1 text-xs text-cream/65">Industri Pengolahan, 2024 (dari 1,06 di 2022)</p>
+              <p className="mt-3 text-[0.6rem] text-cream/40 leading-snug border-t border-cream/10 pt-2">
+                <span className="font-semibold text-cream/60">Elastisitas Kesempatan Kerja</span> = persentase perubahan tenaga kerja &divide; persentase perubahan PDRB (bukan ILOR).
+                ILOR (Incremental Labour-Output Ratio) = kebalikannya.
+              </p>
+              <p className="mt-1 text-[0.6rem] text-cream/40">Sumber: BPS Sulteng, Ketenagakerjaan &amp; PDRB 2024&ndash;2025</p>
             </GlassCard>
           </div>
         </div>
@@ -107,7 +112,7 @@ export default function Chapter11() {
                 <p className="text-[0.65rem] text-cream/55">Padat karya, nilai tambah lebih kecil</p>
               </div>
             </div>
-            <MiniBar label="Pangsa PDRB" value={13.09} max={45} active={active} color="#1f8a99" />
+            <MiniBar label="Pangsa PDRB" value={16.36} max={45} active={active} color="#1f8a99" />
             <MiniBar label="Pangsa Tenaga Kerja" value={31.2} max={45} active={active} color="#1f8a99" />
           </GlassCard>
         </div>

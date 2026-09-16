@@ -18,8 +18,13 @@ const LEGEND = [
 
 const TOP3 = [
   { name: "Morowali", value: 45.45 },
-  { name: "Banggai", value: 8.76 },
-  { name: "Poso", value: 6.12 },
+  { name: "Banggai", value: 10.72 },
+  { name: "Morowali Utara", value: 9.11 },
+];
+
+const TOP5_EXTRA = [
+  { name: "Palu", value: 8.45 },
+  { name: "Parigi Moutong", value: 6.14 },
 ];
 
 export default function Chapter06() {
@@ -58,6 +63,15 @@ export default function Chapter06() {
                 </div>
               ))}
             </div>
+            <div className="mt-4 pt-3 border-t border-cream/10">
+              <p className="text-[0.65rem] font-semibold text-cream/55 uppercase tracking-wide mb-2">Data Pendukung (2025)</p>
+              {TOP5_EXTRA.map((t) => (
+                 <div key={t.name} className="flex justify-between text-xs text-cream/70 mb-1">
+                   <span>{t.name}</span>
+                   <span className="font-semibold">{t.value}%</span>
+                 </div>
+              ))}
+            </div>
           </GlassCard>
         </div>
 
@@ -83,6 +97,7 @@ export default function Chapter06() {
             <p className="mt-1 font-sans text-2xl font-extrabold text-cream">
               <MetricCounter value={4.18} active={active} decimals={2} />%
             </p>
+            <p className="mt-3 text-[0.6rem] text-cream/40">Sumber: BPS Sulteng, Tabel PDRB Kabupaten/Kota 2025 (ADHB)</p>
           </GlassCard>
 
           <GlassCard className="reveal">
