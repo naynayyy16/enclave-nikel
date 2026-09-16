@@ -18,8 +18,23 @@ export function useCountUp(
   active: boolean,
   { decimals = 2, duration = 1.4, delay = 0.15 }: UseCountUpOptions = {}
 ) {
-  const [display, setDisplay] = useState(() => (0).toFixed(decimals));
+  const [display, setDisplay] = useState(() =>
+    new Intl.NumberFormat("id-ID", {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    }).format(value)
+  );
   const played = useRef(false);
+
+  useEffect(() => {
+    played.current = false;
+    setDisplay(
+      new Intl.NumberFormat("id-ID", {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
+      }).format(value)
+    );
+  }, [value, decimals]);
 
   useEffect(() => {
     if (!active || played.current) return;

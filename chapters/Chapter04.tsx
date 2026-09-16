@@ -104,6 +104,7 @@ export default function Chapter04() {
               <MetricCounter value={68} active={active} decimals={0} />%
             </p>
             <p className="mt-1 text-xs text-cream/65">kenaikan PDRB ADHB, 2021 &rarr; 2025</p>
+            <p className="mt-3 text-[0.6rem] text-cream/40">Sumber: BPS Sulteng, PDRB Industri Pengolahan 2025</p>
           </GlassCard>
         </div>
 

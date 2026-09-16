@@ -119,9 +119,10 @@ type BarOrLineChart = Chart<"bar" | "line">;
 
 export function valueLabelPlugin(opts: {
   formatter?: (value: number, ctx: LabelCtx) => string;
-  color?: string;
-  font?: string;
-  offset?: number;
+  color?: string | ((ctx: LabelCtx) => string);
+  font?: string | ((ctx: LabelCtx) => string);
+  offset?: number | ((ctx: LabelCtx) => number);
+  align?: "bottom" | "top" | "center" | ((ctx: LabelCtx) => "bottom" | "top" | "center");
   id?: string;
 }): Plugin<"bar" | "line"> {
   const {
@@ -129,6 +130,7 @@ export function valueLabelPlugin(opts: {
     color = COLORS.cream,
     font = "700 11px Inter, sans-serif",
     offset = 8,
+    align = "bottom",
     id = `valueLabel-${Math.random().toString(36).slice(2)}`,
   } = opts;
 
@@ -144,22 +146,37 @@ export function valueLabelPlugin(opts: {
           const raw = dataset.data[index];
           if (raw === null || raw === undefined) return;
           const value = typeof raw === "number" ? raw : Number(raw);
-          const label = formatter(value, { datasetIndex: dsIndex, dataIndex: index });
+          const labelCtx = { datasetIndex: dsIndex, dataIndex: index };
+          const label = formatter(value, labelCtx);
+          
+          const cColor = typeof color === "function" ? color(labelCtx) : color;
+          const cFont = typeof font === "function" ? font(labelCtx) : font;
+          const cOffset = typeof offset === "function" ? offset(labelCtx) : offset;
+          const cAlign = typeof align === "function" ? align(labelCtx) : align;
+
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const anyEl = el as any;
           const x = anyEl.x as number;
           const y = anyEl.y as number;
           ctx.save();
-          ctx.fillStyle = color;
-          ctx.font = font;
+          ctx.fillStyle = cColor;
+          ctx.font = cFont;
           if (isHorizontal) {
             ctx.textAlign = "left";
             ctx.textBaseline = "middle";
-            ctx.fillText(label, x + offset, y);
+            ctx.fillText(label, x + cOffset, y);
           } else {
             ctx.textAlign = "center";
-            ctx.textBaseline = "bottom";
-            ctx.fillText(label, x, y - offset);
+            if (cAlign === "bottom") {
+               ctx.textBaseline = "bottom";
+               ctx.fillText(label, x, y - cOffset);
+            } else if (cAlign === "top") {
+               ctx.textBaseline = "top";
+               ctx.fillText(label, x, y + cOffset);
+            } else {
+               ctx.textBaseline = "middle";
+               ctx.fillText(label, x, y);
+            }
           }
           ctx.restore();
         });

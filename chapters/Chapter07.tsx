@@ -68,7 +68,7 @@ export default function Chapter07() {
               Indeks Williamson Sulawesi Tengah
             </p>
             <p className="mt-1 text-[0.65rem] font-semibold text-cyan">
-              naik tajam lalu stabil tinggi &rarr;
+              Tren 2021&rarr;2025: naik. Pergerakan 2024&rarr;2025: turun tipis (1,53&rarr;1,51)
             </p>
             <div className="mt-2 min-h-[160px] flex-1">
               {hasEntered && (
@@ -79,6 +79,10 @@ export default function Chapter07() {
                 />
               )}
             </div>
+            <p className="mt-2 text-[0.6rem] text-cream/40">
+              *Tren jangka panjang (2021&rarr;2025) meningkat; pergerakan terakhir (2024&rarr;2025) turun tipis.
+              Sumber: BPS Sulteng, Indeks Williamson antar-kabupaten.
+            </p>
           </GlassCard>
 
           <GlassCard className="reveal flex flex-col">
