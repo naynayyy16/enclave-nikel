@@ -28,7 +28,7 @@ export default function Chapter00() {
           <div className="font-sans font-extrabold text-cream leading-none text-[3.2rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.2rem]">
             <span className="align-top text-[0.4em] font-bold mr-1">Rp</span>
             <MetricCounter value={415.48} active={active} decimals={2} />
-            <span className="text-[0.4em] font-bold ml-2">T</span>
+            <span className="text-[0.4em] font-bold ml-2">M</span>
           </div>
           <div className="hairline mt-4 mb-3 max-w-[280px]" />
           <p className="text-xs md:text-sm uppercase tracking-[0.15em] text-cream/60">
