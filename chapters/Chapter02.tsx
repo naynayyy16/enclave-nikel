@@ -19,7 +19,7 @@ export default function Chapter02() {
       label: "PDRB ADHB 2025",
       node: (
         <>
-          Rp<MetricCounter value={415.48} active={active} decimals={2} /> T
+          Rp<MetricCounter value={415.48} active={active} decimals={2} /> M
         </>
       ),
     },
